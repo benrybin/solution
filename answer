@@ -1,0 +1,41 @@
+import java.util.Stack;
+
+public class Main {
+
+    public static void main(String[] args) {
+        String input = "ghjdffj(:)))";
+        Stack test = new Stack();
+        char[] smile = input.toCharArray();
+        Integer counter1 =0;
+        Integer counter2 =0;
+
+        for (char c: smile) {
+            if(!(c == '(')||!(c == ')')||!(c == ':') ){
+                continue;
+            }
+            if(c == '('){counter1++;}
+            if(c == ')'){counter2++;
+
+           }
+            if(test.empty()){
+                test.push(c);
+            }
+                else{
+                    if(test.peek()== ")" ||test.peek()== ":"){
+                        test.pop();
+                    }
+            }
+
+        }
+
+        if(test.empty()|| counter1 == counter2){
+            System.out.println("YES");
+
+        } else{
+            System.out.println("NO");
+        }
+
+
+
+    }
+}
